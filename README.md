@@ -65,49 +65,56 @@ Below is a code snippet to understand how the date conversion is working
     users['createdDate']=users['createdDate'].fillna(0)
     users['createdDate']=users['createdDate'].apply(lambda d: datetime.fromtimestamp(int(d)/1000).strftime('%Y-%m-%d %H:%M:%S'))
     
+This code will first convert the column to type string, then using the str.replace function, remove all the special characters from the date columns. Later the null values are filled and then datetime function is used.
+    
 The receipts.json table has multiple json objects that were normalized using the same json_normalize technique.
 One specific column called rewardsReceiptItemList was observed to have many different nested json objects which were than converted to columns and dataframe. Below is a list of columns that were obtained after flattening the json object.
 
-barcode	
-description	
-final_price	
-item_price	
-to_be_reviewed	
-partner_item_id	
-target_gap_points	
-purchase_quantity	
-user_flagged_barcode	
-user_new_item	
-user_flagged_price	
-user_flagged_quantity	
-fetch_review_reason	
-no_point_reason	
-point_payer_id	
-rewards_group	
-reward_product_partner_id	
-user_flagged_desc	
-metabrite_barcode	
-metabrite_desc	
-brandCode	
-competitor_reward_group	
-discount_price	
-receipt_item_text	
-item_number	
-metabrite_quantity_purchased	
-points_earned	
-target_price	
-competitive_product	
-original_final_price	
-original_metabrite_price	
-deleted	price_after_coupon	
-item_list	
-metabrite_campaign_id
+•	barcode	
+•	description	
+•	final_price	
+•	item_price	
+•	to_be_reviewed	
+•	partner_item_id	
+•	target_gap_points	
+•	purchase_quantity	
+•	user_flagged_barcode	
+•	user_new_item	
+•	user_flagged_price	
+•	user_flagged_quantity	
+•	fetch_review_reason	
+•	no_point_reason	
+•	point_payer_id	
+•	rewards_group	
+•	reward_product_partner_id	
+•	user_flagged_desc	
+•	metabrite_barcode	
+•	metabrite_desc	
+•	brandCode	
+•	competitor_reward_group	
+•	discount_price	
+•	receipt_item_text	
+•	item_number	
+•	metabrite_quantity_purchased	
+•	points_earned	
+•	target_price	
+•	competitive_product	
+•	original_final_price
+•	original_metabrite_price	
+•	deleted	
+•	price_after_coupon	
+•	item_list	
+•	metabrite_campaign_id	
+
+
+
+
 
 
 ![image](https://user-images.githubusercontent.com/68797584/123874829-5b4d0880-d8fe-11eb-9e7e-04c4c0d94ff3.png)
 
     
-This code will first convert the column to type string, then using the str.replace function, remove all the special characters from the date columns. Later the null values are filled and then datetime function is used.
+
  
 Once all the data is ingested by replacing the file names one by one in the input_path, use the AlterTableStatement.sql to alter tables and establish foreign key relationships in SQL Server Management Studio. Run all the commands only after the data is ingested in the database.
 
