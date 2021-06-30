@@ -51,7 +51,11 @@ File 3: users.json
     
 Before running the main python file, use the CreateTableStatement.sql to create the database and tables. The next step is to populate the tables with clean and processed data. 
 
-The python file contains main code to clean and ingest data into the database. To process files one by one, use the input_path. Just change the name of the files and run the code. The relevant dataframe will be inserted in the SQL Server Management Studio depending on the file you have mentioned in the input_path.
+The python file contains main code to clean and ingest data into the database. To transform and process the files follow the following steps:
+1. Open cmd(Command Line)
+2. Give the path for Main.py file and mention the name of files to be processed. Example:  C:\Users\nishtha\main.py receipts.json 
+ 
+File processing description:
 
 The files contain nested json objects and hence, json_normalize is used to flatten certain columns of the file.
 There are date columns in brands.json and users.json. These dates are in a thirteen digit unix timestamp which is then converted into a standardize datetime format using datetime functions in python.
@@ -106,24 +110,16 @@ One specific column called rewardsReceiptItemList was observed to have many diff
 •	item_list	
 •	metabrite_campaign_id	
 
+Database Processes:
 
-
-
-
-
-![image](https://user-images.githubusercontent.com/68797584/123874829-5b4d0880-d8fe-11eb-9e7e-04c4c0d94ff3.png)
-
-    
-
- 
-Once all the data is ingested by replacing the file names one by one in the input_path, use the AlterTableStatement.sql to alter tables and establish foreign key relationships in SQL Server Management Studio. Run all the commands only after the data is ingested in the database.
+Once all the data is ingested by processing all the files one by one using the cmd, use the AlterTableStatement.sql to alter tables and establish foreign key relationships in SQL Server Management Studio. Run all the commands from AlterTableStatement.sql only after the data is ingested in the database.
 
 After establishing the foreign key relationships, the database would be normalized. Below is how it should look. Below is the ER Diagram of the normalized database.
 
 
-![image](https://user-images.githubusercontent.com/68797584/123873755-9f3f0e00-d8fc-11eb-9a71-c69ee5942246.png)
 
 Use the Queries.sql file to run all the queries and see the report
+
 
 
 
