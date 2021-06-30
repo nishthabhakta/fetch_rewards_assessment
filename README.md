@@ -114,11 +114,14 @@ Database Processes:
 
 Once all the data is ingested by processing all the files one by one using the cmd, use the AlterTableStatement.sql to alter tables and establish foreign key relationships in SQL Server Management Studio. Run all the commands from AlterTableStatement.sql only after the data is ingested in the database.
 
-After establishing the foreign key relationships, the database would be normalized. Below is how it should look. Below is the ER Diagram of the normalized database.
+After establishing the foreign key relationships, the database would be normalized. The ER Diagram can be found in the file ER Diagram.pdf
+
+
+SQL Queries and reports
+Use the Queries.sql file to run all the queries and see the report.
 
 
 
-Use the Queries.sql file to run all the queries and see the report
 
 
 
